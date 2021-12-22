@@ -13,7 +13,7 @@ public interface Function {
      * @param booking
      * @return
      */
-    void saveBooking(Booking booking, Hotel hotel);
+    int saveBooking(Booking booking, Hotel hotel);
 
     /**
      * find available rooms for certain date

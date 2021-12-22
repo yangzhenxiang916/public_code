@@ -21,7 +21,7 @@ public class FunctionImpl implements Function {
      * @param booking
      * @return
      */
-    public synchronized void saveBooking(Booking booking, Hotel hotel) {
+    public synchronized int saveBooking(Booking booking, Hotel hotel) {
         //check if could book
         if (checkBooked(booking, hotel)) {
             //add booking record
@@ -42,7 +42,11 @@ public class FunctionImpl implements Function {
             } else {
                 hotel.getBookingForGuest().get(booking.getGuestName()).add(booking);
             }
+            System.out.println(booking.getGuestName() + " has booked room " + booking.getRoomId() +
+                    " on " + booking.getDate());
+            return 1;
         }
+        return 0;
     }
 
     /**
